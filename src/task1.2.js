@@ -1,13 +1,11 @@
-"use strict"
-
-const csv = require('csvtojson')
-const fs = require('fs')
+import csv from 'csvtojson'
+import { createReadStream, createWriteStream } from 'fs'
 
 const csvFilePath='./resources/books.csv'
 const jsonFilePath='./resources/books.json.txt'
 
-const readStream = fs.createReadStream(csvFilePath);
-const writeStream = fs.createWriteStream(jsonFilePath);
+const readStream = createReadStream(csvFilePath);
+const writeStream = createWriteStream(jsonFilePath);
 
 csv()
     .fromStream(readStream)

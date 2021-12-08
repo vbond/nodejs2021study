@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/task1.1.js",
+  "type": "module",
   "scripts": {
     "btask1_1": "babel ./src/task1.1.js -d ./lib && nodemon ./lib/task1.1.js",
-    "btask1_2": "babel ./src/task1.2.js -d ./lib && nodejs ./lib/task1.2.js",
+    "btask1_2": "babel ./src/task1.2.js -d ./lib && node ./lib/task1.2.js",
     "task1_1": "nodemon ./src/task1.1.js",
-    "task1_2": "nodejs ./src/task1.2.js",
+    "task1_2": "node ./src/task1.2.js",
     "test": "test"
   },
   "repository": {
