@@ -1,0 +1,33 @@
+{
+  "name": "nodejs2021study",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/task1.1.js",
+  "type": "module",
+  "scripts": {
+    "btask1_1": "babel ./src/task1.1.js -d ./lib && nodemon ./lib/task1.1.js",
+    "btask1_2": "babel ./src/task1.2.js -d ./lib && node ./lib/task1.2.js",
+    "task1_1": "nodemon ./src/task1.1.js",
+    "task1_2": "node ./src/task1.2.js",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vbond/nodejs2021study.git"
+  },
+  "author": "Vitaliy B",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vbond/nodejs2021study/issues"
+  },
+  "homepage": "https://github.com/vbond/nodejs2021study#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "csvtojson": "^2.0.10"
+  }
+}
