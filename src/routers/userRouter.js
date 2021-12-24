@@ -1,18 +1,18 @@
 import express from 'express';
-import validator from '../schema/schema.js';
-import { _update, _delete, _create, _autosuggest, _read } from '../controllers/userController.js';
+import { validatorBody, validatorQuery } from '../schema/schema.js';
+import { modifyUser, deleteUser, instanceUser, autoSuggest, readUser } from '../controllers/userController.js';
 
 
 const router = express.Router();
 
-router.get('/user/:id', _read);
+router.get('/users/:id', readUser);
 
-router.get('/users/:login/:limit', _autosuggest);
+router.get('/users', validatorQuery, autoSuggest);
 
-router.post('/user', validator, _create);
+router.post('/users', validatorBody, instanceUser);
 
-router.delete('/user/:id', _delete);
+router.delete('/users/:id', deleteUser);
 
-router.put('/user/:id', validator, _update);
+router.put('/users/:id', validatorBody, modifyUser);
 
 export default router;

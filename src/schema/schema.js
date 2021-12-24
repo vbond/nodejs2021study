@@ -2,7 +2,7 @@ import joi from 'joi';
 import joiValidator from 'express-joi-validation';
 
 const validator = joiValidator.createValidator({});
-const schema = joi.object({
+const bodySchema = joi.object({
     login: joi.string()
         .alphanum()
         .min(5)
@@ -20,4 +20,16 @@ const schema = joi.object({
         .required()
 });
 
-export default validator.body(schema);
+const querySchema = joi.object({
+    login: joi.string()
+        .alphanum()
+        .default(''),
+
+    limit: joi.number()
+        .default(10)
+});
+
+const validatorBody = validator.body(bodySchema)
+const validatorQuery = validator.query(querySchema)
+
+export { validatorBody, validatorQuery }

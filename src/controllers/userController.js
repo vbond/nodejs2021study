@@ -1,7 +1,7 @@
 import { updateUser, removeUser, createUser, searchUser, getUser } from '../services/userService.js';
 
 
-const _read = (req, res) => {
+const readUser = (req, res) => {
     const id = req.params.id;
 
     const user = getUser(id);
@@ -12,9 +12,9 @@ const _read = (req, res) => {
     }
 };
 
-const _autosuggest = (req, res) => {
-    const login = req.params.login;
-    const limit = parseInt(req.params.limit);
+const autoSuggest = (req, res) => {
+    const login = req.query.login;
+    const limit = req.query.limit;
 
     const userResult = searchUser(login, limit);
 
@@ -25,13 +25,13 @@ const _autosuggest = (req, res) => {
     }
 };
 
-const _create = (req, res) => {
+const instanceUser = (req, res) => {
     const user = createUser(req.body.login, req.body.password, req.body.age);
 
     res.send(`user created, id = ${user.id}`);
 };
 
-const _delete = (req, res) => {
+const deleteUser = (req, res) => {
     const id = req.params.id;
 
     const user = removeUser(id);
@@ -42,7 +42,7 @@ const _delete = (req, res) => {
     }
 };
 
-const _update = (req, res) => {
+const modifyUser = (req, res) => {
     const id = req.params.id;
 
     const user = updateUser(id, req.body.login, req.body.password, req.body.age);
@@ -53,4 +53,4 @@ const _update = (req, res) => {
     }
 };
 
-export { _update, _delete, _create, _autosuggest, _read };
+export { modifyUser, deleteUser, instanceUser, autoSuggest, readUser };

@@ -11,7 +11,7 @@ const searchUser = (login, limit) => {
     const pattern = RegExp(`.*${login}.*`);
 
     const userResult = Array.from(usersMap.values())
-        .filter(user => pattern.test(user.login) && !user.isDeleted)
+        .filter(user => (login === '' || pattern.test(user.login)) && !user.isDeleted)
         .sort((a, b) => a.login.localeCompare(b.login))
         .slice(0, limit);
 
