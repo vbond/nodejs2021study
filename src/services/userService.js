@@ -53,4 +53,4 @@ const updateUser = (id, login, password, age) => {
     }
 };
 
-export { updateUser, removeUser, createUser, searchUser, getUser };
+export { updateUser, removeUser, createUser, searchUser, getUser, usersMap };
